@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.logo-animation {
+    animation: logoSpin 4s linear infinite;
+  }
+  
+  @keyframes logoSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  body {
+    font-family: 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+  }
+  
+  /* Customize link styles */
+  a {
+    color: #0070f3;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* ... other global styles */
+  
+  /* Apply custom styles to specific components if needed */
+  .login-form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
