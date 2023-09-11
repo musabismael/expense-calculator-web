@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useRouter } from "next/router";
-import { useAuth } from '../context/AuthContext';
+import { useRouter } from "next/navigation";
+import API_BASE_URL from './../../../config'; // Import the base URL
 
 function RegistrationForm() {
   const [username, setUsername] = useState("");
@@ -10,33 +10,36 @@ function RegistrationForm() {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  const { register } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (password !== confirmPassword) {
       setError("Passwords do not match.");
       return;
     }
-
+  
     setIsLoading(true);
     setError(null);
-
+  
     try {
-      // Simulate registration by delaying for a few seconds
-      // Replace this with your actual registration logic
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      // Clear form inputs and show success message
-      setUsername("");
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
-      setError(null);
-      await register(username, email, password);
-      router.push("/login");
-
+      // Send the registration data to the API
+      const response = await axios.post(`${API_BASE_URL}/api/register`, {
+        username,
+        email,
+        password,
+      });
+  
+      // Assuming the API returns a success message upon successful registration
+      if (response.status === 201) {
+        // Clear form inputs and show success message
+        setUsername("");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+        setError(null);
+        router.push("/login");
+      }
     } catch (err) {
       setError("An error occurred. Please try again later.");
     } finally {

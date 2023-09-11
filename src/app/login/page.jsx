@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import LoginForm from '../components/Auth/LoginForm';
+import LoginForm from '../../components/Auth/LoginForm';
 
 function LoginPage() {
   return (
@@ -14,7 +14,7 @@ function LoginPage() {
               <Link href="/register" className="text-blue-500 hover:underline">Register</Link>
           </p>
           <div className="mt-2">
-            <Link  href="/forgot-password" className="text-blue-600 hover:underline">Forgot Password?</Link>
+            <Link  href="/forgot" className="text-blue-600 hover:underline">Forgot Password?</Link>
         </div>
         </div>
        

@@ -1,5 +1,6 @@
+"use client"
 import Link from 'next/link';
-import RegistrationForm from '../components/Auth/RegistrationForm';
+import RegistrationForm from '../../components/Auth/RegistrationForm';
 
 function RegisterPage() {
   return (

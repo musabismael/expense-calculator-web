@@ -1,7 +1,7 @@
 
 import Link from "next/link";
 import { useAuth } from "../components/context/AuthContext";
-import LoginPage from "./login";
+import LoginPage from "./login/page";
 const Page = () => {
   // const { isLoggedIn, login, logout } = useAuth();
   const number = 1
