@@ -1,12 +1,16 @@
+"use client"
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation'
+import { useAuth } from '../context/AuthContext';
 
-function LoginForm() {
+function LoginForm({history }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
   const router = useRouter();
+  // const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,9 +27,11 @@ function LoginForm() {
       setEmail('');
       setPassword('');
       setError(null);
+      // login(email, password);
 
-      console.log('Login successful!');
       router.push('/dashboard');
+
+    
 
     } catch (err) {
       setError('Invalid email or password.');

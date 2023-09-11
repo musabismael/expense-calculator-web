@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Your global styles */
+
+/* Apply a margin and padding reset */
+.dashboard-content {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background-color: #f7f7f7;
+}
+
+/* Add more global styles as needed */
